@@ -6,7 +6,7 @@ picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__)
 import logging
 import epd7in5_V2
 import time
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -18,10 +18,30 @@ try:
     epd.init()
     epd.Clear()
 
-    logging.info("read bmp file")
+    font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
+
+    # draw image
+    """ logging.info("read bmp file")
     Himage = Image.open(os.path.join(picdir, 'testImage_800_480.bmp'))
     epd.display(epd.getbuffer(Himage))
-    time.sleep(20)
+    time.sleep(20) """
+
+    Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+    draw = ImageDraw.Draw(Himage)
+
+    # partial update
+    logging.info("show date")
+    epd.init_part()
+    num = 0
+    while (True):
+        draw.rectangle((10, 120, 130, 170), fill = 127)
+        draw.text((10, 120), time.strftime('%D'), font = font24, fill = 0)
+        epd.display_Partial(epd.getbuffer(Himage),0, 0, epd.width, epd.height)
+        num = num + 1
+        time.sleep(2)
+        if(num == 4):
+            break
+
 
     logging.info("Clear...")
     epd.init()
