@@ -21,12 +21,12 @@ try:
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
 
     # draw image
-    """ logging.info("read bmp file")
-    Himage = Image.open(os.path.join(picdir, 'testImage_800_480.bmp'))
+    logging.info("read image file")
+    Himage = Image.open(os.path.join(picdir, 'svgToPngTest.png'))
     epd.display(epd.getbuffer(Himage))
-    time.sleep(20) """
+    time.sleep(20)
 
-    Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+    """ Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
     draw = ImageDraw.Draw(Himage)
 
     # partial update
@@ -40,7 +40,7 @@ try:
         num = num + 1
         time.sleep(2)
         if(num == 4):
-            break
+            break """
 
 
     logging.info("Clear...")
