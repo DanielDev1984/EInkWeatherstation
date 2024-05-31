@@ -3,9 +3,9 @@
     <rect width="800" height="480" id="rect3855" fill="white" />
 
     <g transform="scale(1.2) translate(75 165)" id="currentweather">
-        <use id="currentweathericon" href="icons/ICON_ONE.svg" />
+        <use id="currentweathericon" href="../pic/icons/WEATHER_ICON.svg" />
     </g>
-
+<!--
     <text id="alertmessage" x="0" y="35" font-size="30px" style="font-weight:bold;font-size:30px;line-height:0%;font-family:'Nimbus Mono PS',monospace;text-anchor:beginning">ALERT_MESSAGE</text>
     <text id="temphighlow" x="155" y="360" font-size="38px" style="font-size:38px;line-height:0%;font-family:sans-serif;text-anchor:middle">HIGH_ONE/LOW_ONE</text>
     <text id="weatherdesc1" x="155" y="390" font-size="38px" style="font-size:28px;line-height:0%;font-family:sans-serif;text-anchor:middle">WEATHER_DESC_1</text>
@@ -45,6 +45,6 @@
 
     <text id="texttime" x="20" y="125" font-size="TIME_NOW_FONT_SIZE" style="font-weight:bold;line-height:0%;font-family:sans-serif;text-anchor:beginning">TIME_NOW</text>
 
-    <use id="customdata" href="screen-output-custom-temp.svg" />
+    <use id="customdata" href="screen-output-custom-temp.svg" /> -->
 
 </svg>

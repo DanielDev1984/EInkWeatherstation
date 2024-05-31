@@ -1,0 +1,2 @@
+def getWeather():
+    return "blizzard"
