@@ -1,0 +1,20 @@
+stations
+- https://www.dwd.de/DE/leistungen/klimadatendeutschland/stationsliste.html
+- https://www.dwd.de/DE/leistungen/klimadatendeutschland/statliste/statlex_rich.txt?view=nasPublication&nn=16102
+- https://opendata.dwd.de/climate_environment/CDC/help/stations_list_CLIMAT_data.txt
+
+dwd-id
+4175 rheinfelden
+
+wmo-id
+07299 - basel mlh
+06601 - basel binningen
+
+brightsky-api:
+- https://api.brightsky.dev/weather?date=2024-06-01&lat=47.56&lon=7.79
+
+
+alerts:
+- https://brightsky.dev/docs/#/operations/getAlerts
+- https://brightsky.dev/demo/alerts/
+- https://api.brightsky.dev/alerts
