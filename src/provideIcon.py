@@ -2,12 +2,26 @@ import requests
 from updateSvg import updateSvg
 from weatherprovider import getWeather
 import drawsvg as draw
+import datetime
 
 def main():
     print(f"main called")
 
 hostname = "https://api.brightsky.dev/weather"
-date = "date=2024-07-20"
+
+dateHour = datetime.datetime.now().month
+if dateHour < 10:
+    dateHour = "0" + str(dateHour)
+else:
+    dateHour = str(dateHour)
+
+dateDay = datetime.datetime.now().day
+if dateDay < 10:
+    dateDay = "0" + str(dateDay)
+else:
+    dateDay = str(dateDay)
+date = "date="+ str(datetime.datetime.now().year) + "-" + dateHour + "-" + dateDay
+
 location = "lat=47.56&lon=7.79" 
     
 url = hostname+"?" + date + "&" + location
@@ -35,10 +49,7 @@ for i in range(len(temperatures)):
         maxTempIndex = i
     temperatures[i]  = temperatures[i]*tempScaleFactor
 
-
 print(f"temps in array: {temperatures}")
-
-
 
 d = draw.Drawing(500, 800,origin='center')
 d.append(draw.Lines(0,-temperatures[0],10,-temperatures[1],
@@ -76,6 +87,9 @@ d.append(draw.Lines(0,-temperatures[0],0,-temperatures[minTempIndex],close=False
 d.append(draw.Lines(120,-temperatures[11],120,-temperatures[minTempIndex],close=False, fill='white', stroke='black'))
 d.append(draw.Text("00:00", 20, 0,-temperatures[minTempIndex]+20, text_anchor='middle'))
 d.append(draw.Text("12:00", 20, 120,-temperatures[minTempIndex]+20, text_anchor='middle'))
+
+currentHour = datetime.datetime.now().hour
+d.append(draw.Circle( currentHour*10, -temperatures[currentHour], 10, fill='grey', stroke='black'))
 
 d.append(draw.Text(date, 28, 0,0))
 
