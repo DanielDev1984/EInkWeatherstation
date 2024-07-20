@@ -4,3 +4,4 @@ RPi.GPIO==0.7.1
 Pillow==9.3.0
 spidev==3.6
 requests==2.32.3
+drawsvg==2.4.0
