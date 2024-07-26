@@ -1,2 +1,2 @@
 def getWeather():
-    return "blizzard"
+    return "temperature_graph_hour"

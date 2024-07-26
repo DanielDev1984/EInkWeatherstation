@@ -76,32 +76,32 @@ d.append(draw.Lines(0,-temperatures[0],10,-temperatures[1],
                     210,-temperatures[21],220,-temperatures[22],
                     220,-temperatures[22],230,-temperatures[23],
                     230,-temperatures[23],240,-temperatures[24],
-                    close=False, fill='white', stroke='black'))
+                    close=False, stroke_width=4,fill='none',stroke='black'))
 
 d.append(draw.Lines(minTempIndex*10, -temperatures[minTempIndex], minTempIndex*10, -temperatures[minTempIndex]-10,close=False, fill='white', stroke='black'))
-d.append(draw.Text(str(temperatures[minTempIndex]/tempScaleFactor), 14, minTempIndex*10, -temperatures[minTempIndex]-20,text_anchor='middle'))
+d.append(draw.Text(str(temperatures[minTempIndex]/tempScaleFactor), 14, minTempIndex*10, -temperatures[minTempIndex]-20,text_anchor='middle',font_family='DejaVu'))
 d.append(draw.Lines(maxTempIndex*10, -temperatures[maxTempIndex], maxTempIndex*10, -temperatures[maxTempIndex]-10,close=False, fill='white', stroke='black'))
-d.append(draw.Text(str(temperatures[maxTempIndex]/tempScaleFactor), 14, maxTempIndex*10, -temperatures[maxTempIndex]-20,text_anchor='middle'))
+d.append(draw.Text(str(temperatures[maxTempIndex]/tempScaleFactor), 14, maxTempIndex*10, -temperatures[maxTempIndex]-20,text_anchor='middle',font_family='DejaVu'))
 
 d.append(draw.Lines(0,-temperatures[0],0,-temperatures[minTempIndex],close=False, fill='white', stroke='black'))
 d.append(draw.Lines(120,-temperatures[11],120,-temperatures[minTempIndex],close=False, fill='white', stroke='black'))
-d.append(draw.Text("00:00", 20, 0,-temperatures[minTempIndex]+20, text_anchor='middle'))
-d.append(draw.Text("12:00", 20, 120,-temperatures[minTempIndex]+20, text_anchor='middle'))
+d.append(draw.Text("00:00", 20, 0,-temperatures[minTempIndex]+20, text_anchor='middle',font_family='DejaVu'))
+d.append(draw.Text("12:00", 20, 120,-temperatures[minTempIndex]+20, text_anchor='middle',font_family='DejaVu'))
 
 currentHour = datetime.datetime.now().hour
 d.append(draw.Circle( currentHour*10, -temperatures[currentHour], 10, fill='grey', stroke='black'))
 
-d.append(draw.Text(date, 28, 0,0))
+d.append(draw.Text(date, 28, 0,0,font_family='DejaVu'))
 
-d.save_svg('temperature_graph_hour.svg')
+d.save_svg('/home/daniel/development/eink/EInkWeatherstation/pic/icons/temperature_graph_hour.svg')
 
-'''output_dict = {
+output_dict = {
         'WEATHER_ICON': getWeather()
     }
     # todo: use relative path
 template_svg_filename = "/home/daniel/development/eink/EInkWeatherstation/pic/screen-template.svg"
 output_svg_filename = 'screen-output-weather.svg'
-updateSvg(template_svg_filename,output_dict, output_svg_filename)'''
+updateSvg(template_svg_filename,output_dict, output_svg_filename)
 
 print(f"call main")
 

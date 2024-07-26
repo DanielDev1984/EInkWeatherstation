@@ -24,7 +24,7 @@ try:
     logging.info("read image file")
     Himage = Image.open(os.path.join(picdir, 'svgToPngTest.png'))
     epd.display(epd.getbuffer(Himage))
-    time.sleep(20)
+    time.sleep(40)
 
     """ Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
     draw = ImageDraw.Draw(Himage)

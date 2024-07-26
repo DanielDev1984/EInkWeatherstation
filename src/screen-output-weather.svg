@@ -5,7 +5,7 @@
     <!--<image x="0" y="0" width="800" height="480" preserveAspectRatio="none" xlink:href="https://www.pixelstalk.net/wp-content/uploads/2016/05/Black-And-White-HD-Wallpapers.jpg"/>-->
     <image x="0" y="0" width="800" height="480" preserveAspectRatio="none" xlink:href="/home/daniel/development/eink/EInkWeatherstation/pic/swirl.png"/>    
     <g transform="scale(1.0) translate(-170 -225)" id="currentweather">
-        <use id="currentweathericon" href="../pic/icons/WEATHER_ICON.svg" />
+        <use id="currentweathericon" href="../pic/icons/temperature_graph_hour.svg" />
     </g>
     <image x="0" y="180" width="300" height="300" preserveAspectRatio="none" xlink:href="/home/daniel/development/eink/EInkWeatherstation/pic/icons/sunny.png"/>    
 <!--
