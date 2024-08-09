@@ -3,36 +3,19 @@ from updateSvg import updateSvg
 from weatherprovider import getWeather
 import drawsvg as draw
 import datetime
+import dataProvider as dP
 
 def main():
-    print(f"main called")
+    print(f"main called provideIcon")
+# data source
+responseJson = dP.getWeatherJson()
+#print(responseJson)
 
-hostname = "https://api.brightsky.dev/weather"
-
-dateHour = datetime.datetime.now().month
-if dateHour < 10:
-    dateHour = "0" + str(dateHour)
-else:
-    dateHour = str(dateHour)
-
-dateDay = datetime.datetime.now().day
-if dateDay < 10:
-    dateDay = "0" + str(dateDay)
-else:
-    dateDay = str(dateDay)
-date = "date="+ str(datetime.datetime.now().year) + "-" + dateHour + "-" + dateDay
-
-location = "lat=47.56&lon=7.79" 
-    
-url = hostname+"?" + date + "&" + location
-
-
-headers = {"Accept": "apkeylication/json"}
-
-response = requests.get(url)
+# data mapper->provider
 temperatures = []
 
-for key in response.json()["weather"]:
+#for key in response.json()["weather"]:
+for key in responseJson["weather"]:
     print(key["timestamp"] + " " + str(key["temperature"]))
     temperatures.append(key["temperature"])
 
@@ -50,7 +33,7 @@ for i in range(len(temperatures)):
     temperatures[i]  = temperatures[i]*tempScaleFactor
 
 print(f"temps in array: {temperatures}")
-
+# graph provider
 d = draw.Drawing(500, 800,origin='center')
 d.append(draw.Lines(0,-temperatures[0],10,-temperatures[1],
                     10,-temperatures[1],20,-temperatures[2],
