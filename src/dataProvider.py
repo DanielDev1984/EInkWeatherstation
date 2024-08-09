@@ -42,6 +42,7 @@ def fetchLatestWeatherInfo():
     
 
 def getWeatherJson():
+    fetchLatestWeatherInfo()
     outfilename = "test" + ".json"
     with open(outfilename) as f:
         d = json.load(f)
